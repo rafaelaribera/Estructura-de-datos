@@ -1,0 +1,66 @@
+
+#include <iostream>
+#include "math.h"
+using namespace std;
+float unica (float a, float b, float c, float determinante);
+void doble  (float a, float b, float c, float determinante);
+void imaginaria (float a, float b, float c, float determinante);
+int main()
+{
+    float a,b,c, determinante;
+    do{ cout<<"Ingrese el termino cuadratico: ";
+    cin>>a;} while (a==0);
+    cout<<"Ingrese el termino lineal: ";
+    cin>>b;
+    cout<<"Ingrese el termino independiente: ";
+    cin>>c;
+    determinante=(pow(b,2)-4*a*c);
+    if (determinante<0)
+    {
+      imaginaria(a,b,c,determinante);
+    }
+    else if (determinante==0)
+    {
+        cout<<"La solucion unica es "<<unica(a,b,c,determinante);
+    }
+    else if (determinante>0)
+    {
+        doble(a,b,c,determinante);
+    }
+    return 0;
+}
+float unica (float a, float b, float c, float determinante)
+{
+    float raiz=sqrt(determinante);
+    float resultado=(-b+raiz)/(2*a);
+    return resultado;
+}
+
+void doble  (float a, float b, float c, float determinante)
+{
+    float resultado1, resultado2, raiz;
+    raiz=sqrt(determinante);
+    resultado1= (-b+raiz)/(2*a);
+    resultado2=(-b-raiz)/(2*a);
+    
+    cout<<"El primer resultado es "<<resultado1;
+    cout<<"El segundo resultado es "<<resultado2;
+}
+void imaginaria (float a, float b, float c, float determinante)
+{
+    float resultado1, resultado2, raiz;
+    raiz=sqrt(-determinante);
+    cout<<"El primer resultado es "<<-b<<"+"<<raiz<<"i"<<"/"<<2*a;
+    cout<<"El 2do resultado es "<<-b<<"-"<<raiz<<"i"<<"/"<<2*a;
+}
+
+
+
+
+
+
+
+
+    
+
+
