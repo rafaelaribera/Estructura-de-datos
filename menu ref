@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+#include "math.h"
+
+void potencia (float base, int exponente, float &resultado);
+int factorial (int n);
+float serie(int x, int num);
+int main()
+{
+    int opcion,exponente,x,num;
+    float n, base, resultado;
+    do
+    {   cout<<"**********MENU******"<<endl;
+        cout<<"1. Potencia"<<endl;
+        cout<<"2. Factorial"<<endl;
+        cout<<"3. Serie "<<endl;
+        cout<<"0. Salir "<<endl;
+        cout<<"Ingrese un numero: ";
+        cin>>opcion;
+        switch(opcion)
+        {
+            case 1:
+            {   
+                do { cout<<"Ingrese la cantidad base ";
+                cin>>base;
+                } while (base<1);
+                do {  cout<<"Ingrese la potencia: ";
+                cin>>exponente;
+                } while (exponente<0);
+                potencia(base,exponente,resultado);
+                cout << "El resultado es " <<resultado;
+            } break;
+            case 2:
+            {   do{
+                cout<<"Ingrese el numero a calcular el factorial: ";
+                cin>>num;} while (num<0);
+                cout<<"El factorial es "<<factorial(num)<<endl;
+            } break;
+            case 3:
+            {
+                do { cout<<"En la seria 3+x+x^2/2!...n, ingrese n: ";
+                cin>>num; } while (num<1);
+                do {  cout<<"Ingrese x: ";
+                cin>>x; 
+                } while (x<0);
+                cout<<"El resultado es "<<serie(x,num)<<endl;
+            } break;
+            case 0: return 0;
+            
+            
+        }
+    } while (opcion!=0);
+
+    return 0;
+}
+void potencia(float base, int exponente, float &resultado)
+{
+    resultado = 1; 
+    for (int i = 1; i <=exponente; i++){
+        resultado *=base;
+    }
+   
+}
+
+int factorial (int n)
+{
+    int acum=1;
+    for (int i=2; i<=n; i++)
+    {
+        acum*=i;
+    }
+    return acum;
+}
+float serie(int x, int num)
+{
+    float result=0,i,term;
+       for (i=1;i<=num;i++)
+    {
+        term=pow(x,2*i)/tgamma(2*i+1);
+        result=result+term;
+    }
+    float sum;
+    sum=3+x+result;
+    return sum;
+}
