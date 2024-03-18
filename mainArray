@@ -1,0 +1,13 @@
+#include "Array.h"
+using namespace std;
+
+int main()
+{
+    int A[] = { 1,3,5,7,9 };
+    Array array1(5);
+    array1.MostrarArray(A);
+    cout << "\ El mayor del Array es " << array1.MostrarMayor(A);
+    cout << " \ El menor del Array es " << array1.MostrarMenor(A);
+    return 0;
+
+}
