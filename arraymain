@@ -1,0 +1,21 @@
+#include <iostream>
+#include "Array2.h"
+using namespace std;
+int main()
+{
+	int A[5], B[5];
+	Array2 array2(5);
+	cout << "Cargando el vector A\n";
+	array2.cargarArray(A);
+	cout << "Cargando el vector B\n";
+	array2.cargarArray(B);
+	cout << "Mostrando el vector A\n";
+
+	array2.mostrarArray(A);
+	cout << "Mostrando el vector B\n";
+	array2.mostrarArray(B);
+	cout << "Mostrando la suma del vector A y B" << endl;
+	array2.MostrarSuma(A, B);
+	return 0;
+
+}
