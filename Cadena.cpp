@@ -46,12 +46,14 @@ int  Cadena::encontrarchar(char ch) {
 	}
 }
 void Cadena::invertirfrase() {
-	string aux;
-	for (int i = 0; i < longitud; i++)
+	char aux;
+	for (int i = 0; i < longitud/2; i++)
 	{
-		aux[i] = cadena[longitud - 1 - i];
+		aux = cadena[i];
+		cadena[i] = cadena[longitud - 1 - i];
+		cadena[longitud - 1 - i] = aux;
 	}
-	cout << "La cadena invertida es " << aux << endl;
+	cout << "La cadena invertida es " << cadena << endl;
 }
 bool Cadena::palindromo() {
 	int inicio = 0;
